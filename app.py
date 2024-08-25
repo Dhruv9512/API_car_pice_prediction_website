@@ -3,7 +3,7 @@ from flask_cors import CORS
 import pandas as pd
 import pickle as pkl
 import numpy as np
-
+import os
 app = Flask(__name__)
 CORS(app)
 
@@ -66,5 +66,6 @@ def predict():
 
 
 
-if "__main__" == __name__:
-    app.run(debug=True)
+if __name__ == "__main__":
+    DEBUG_MODE = os.getenv('DEBUG_MODE') == 'True'
+    app.run(debug=DEBUG_MODE)
