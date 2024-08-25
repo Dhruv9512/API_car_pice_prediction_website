@@ -59,7 +59,7 @@ def predict():
         
         # Predict
         pre = pkl_model.predict(input_data)
-        return jsonify({"predict": np.round(pre[0], 2).tolist()})
+        return jsonify({"predict": np.round(pre, 2).tolist()})
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
